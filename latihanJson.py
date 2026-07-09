@@ -97,3 +97,34 @@ Db1.tambah_siswa("Lumine",1000)
 print (Db1.lihat_data())
 Db1.save("Database_Siswa.json")
 
+print()
+
+data = {
+    "perusahaan": {
+        "nama": "OpenAI",
+        "karyawan": [
+            {
+                "nama": "HuTao",
+                "umur": 19,
+                "skill": ["Python", "SQL", "Git"]
+            },
+            {
+                "nama": "YaeMiko",
+                "umur": 30,
+                "skill": ["Java", "Docker", "Linux"]
+            }
+        ]
+    }
+}
+print ("Nama perusahaan : ",data["perusahaan"]["nama"])
+print ("Nama Karyawan 1 : ",data["perusahaan"]["karyawan"][0]["nama"])
+print ("Umur Yaemiko  : ",data["perusahaan"]["karyawan"][1]["umur"])
+print ("Skill pertama HuTao : ",data["perusahaan"]["karyawan"][0]["skill"][0])
+print ("Skill terakhir YaeMiko : ",data["perusahaan"]["karyawan"][1]["skill"][2])
+data["perusahaan"]["karyawan"][0]["skill"][1] = "Langgraph"
+data["perusahaan"]["nama"] = "Anthropic"
+
+
+with open("perusahaan.json","w") as file:
+    data = data
+    json.dump(data,file,indent=4)
